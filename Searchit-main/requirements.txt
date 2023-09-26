@@ -1,0 +1,5 @@
+Flask
+requests
+re
+BeautifulSoup
+pip=22.3.1

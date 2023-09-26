@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethereum Wallet Address Scraper</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aqua;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Corrected to use "vh" unit for viewport height */
+        }
+
+        header {
+            color: #840a0a;
+            padding: 10px 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .navbar li {
+            list-style-type: none;
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #1bd0a6;
+        }
+
+        .navbar a:hover {
+            color: #0056b3;
+        }
+
+        section {
+            padding: 20px;
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .search-box::placeholder {
+            color: #777;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        /* Additional styles for the results section */
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px;
+            padding: 10px;
+            background-color: #f2f4f5;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ethereum Wallet Address Scraper</h1>
+    </header>
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="aboutus.html">About us</a></li>
+    </ul>
+    <section>
+        <form method="post" action="/">
+            <label for="url" style="font-size: 20px; color: #007bff;">Enter the URL to scrape Ethereum wallet addresses from:</label>
+            <br>
+            <input type="text" id="url" name="url" class="search-box" placeholder="Ethereum ID" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <section>
+        {% if wallet_addresses %}
+            <h2>Ethereum Wallet Addresses found:</h2>
+            <ul>
+                {% for address in wallet_addresses %}
+                    <li><a href="https://tracker.cryptod5.com/?address={{ address }}" target="_blank">{{ address }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
+    
+    <footer>
+        &copy; 2023 Your Company Name
+    </footer>
+</body>
+</html>
